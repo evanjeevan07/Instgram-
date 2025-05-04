@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Instagram Downloader</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Bebas Neue', sans-serif;
+    }
+    h1 {
+      font-family: 'Abril Fatface', cursive;
+    }
+    .step-title {
+      font-family: 'Bebas Neue', sans-serif;
+    }
+    input:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-white bg-gradient-to-br from-purple-700 to-blue-600">
+
+  <!-- HEADER -->
+  <header class="flex justify-between items-center px-4 py-4 bg-white bg-opacity-10 shadow-md">
+    <div class="flex items-center font-bold text-xl space-x-2">
+      <img src="https://fastdl.app/logo192.png" class="h-6 w-6" alt="Logo">
+      <span>FastDL</span>
+    </div>
+    <div class="flex items-center space-x-4">
+      <a href="#" class="hover:underline">FAQ</a>
+      <span class="cursor-pointer">EN ▼</span>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex flex-col items-center mt-14 px-4">
+    <h1 class="text-4xl text-center mb-10">INSTAGRAM DOWNLOADER</h1>
+
+    <!-- Input Box without border -->
+    <div class="w-full max-w-xl bg-white rounded-xl shadow-xl mb-6 flex overflow-hidden">
+      <input id="linkInput" type="text" placeholder="Insert Instagram link here"
+        class="flex-1 px-6 py-4 text-black bg-transparent placeholder-gray-500" />
+      <button onclick="pasteClipboard()" class="bg-gray-200 px-5 py-4 text-black hover:bg-gray-300 transition">
+        Paste
+      </button>
+    </div>
+
+    <!-- Download Button -->
+    <button onclick="downloadNow()"
+      class="bg-blue-500 hover:bg-blue-600 px-20 py-4 rounded-lg transition font-semibold shadow-md mb-28">
+      Download
+    </button>
+  </main>
+
+  <!-- HOW TO SECTION -->
+  <section class="bg-white text-black w-full px-6 py-16 rounded-t-3xl">
+    <h2 class="text-center text-3xl font-bold text-purple-700 mb-14 step-title">HOW TO DOWNLOAD VIDEO FROM INSTAGRAM?</h2>
+
+    <div class="grid md:grid-cols-3 gap-10 text-center">
+
+      <!-- Step 1 -->
+      <div class="flex flex-col items-center space-y-4">
+        <img src="https://assets.onecompiler.app/3zky9aw9p/43gjbs3v7/Picsart_25-05-04_11-45-48-793.jpg" alt="Step 1"
+          class="rounded-lg w-full max-w-xs shadow-md">
+        <div>
+          <div class="text-pink-600 text-xl font-bold step-title">1. Copy the URL</div>
+          <p class="text-sm mt-1">Access Instagram and copy the link to the reel, photo, or video you want to download.</p>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="flex flex-col items-center space-y-4">
+        <img src="https://assets.onecompiler.app/3zky9aw9p/43gjbs3v7/IMG_20250504_122306.jpg" alt="Step 2"
+          class="rounded-lg w-full max-w-xs shadow-md">
+        <div>
+          <div class="text-pink-600 text-xl font-bold step-title">2. Paste the link</div>
+          <p class="text-sm mt-1">Return to this page and paste the link into the input field above.</p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="flex flex-col items-center space-y-4">
+        <video autoplay muted loop class="rounded-lg w-full max-w-xs shadow-md">
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div>
+          <div class="text-pink-600 text-xl font-bold step-title">3. Download</div>
+          <p class="text-sm mt-1">Click download and choose from the available quality options.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script>
+    function pasteClipboard() {
+      navigator.clipboard.readText().then(text => {
+        document.getElementById("linkInput").value = text;
+      }).catch(() => {
+        alert("Clipboard permission denied.");
+      });
+    }
+
+    function downloadNow() {
+      const url = document.getElementById("linkInput").value.trim();
+      if (!url) {
+        alert("Please enter an Instagram link.");
+        return;
+      }
+      alert("Pretending to download from: " + url);
+    }
+  </script>
+</body>
+</html>
